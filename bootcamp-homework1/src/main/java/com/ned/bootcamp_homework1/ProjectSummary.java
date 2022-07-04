@@ -9,7 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import org.apache.maven.artifact.repository.metadata.Plugin;
 import org.apache.maven.model.Dependency;
+import org.apache.maven.model.Developer;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -46,67 +48,55 @@ public class ProjectSummary extends AbstractMojo{
 			
 			// Write Project Info
 			f0.write("Project info : ");
-			writeToFile(project.getGroupId());
+			f0.write(project.getGroupId());
 			f0.write(".");
-			writeToFile(project.getArtifactId());
+			f0.write(project.getArtifactId());
 			f0.write(".");
-			writeToFile(project.getVersion());
+			f0.write(project.getVersion());
 			
 			f0.write(newLine);
 			
 			// Write Developers
 			f0.write("Developers : ");
-			writeToFile(project.getDevelopers());
+			for(int i=0;i<project.getDevelopers().size();i++) {
+				Developer developer = (Developer)project.getDevelopers().get(i);
+				String tempString = " Developer " + String.valueOf((i+1)) + " Name : " + developer.getName();
+				f0.write(tempString);
+			}
 			
 			f0.write(newLine);
 			
 			//Write Release Date
 			f0.write("Release Date : ");
 			String releaseDate = project.getProperties().getProperty(release);
-			writeToFile(releaseDate);
+			f0.write(releaseDate);
 			f0.write(newLine);
-			
+						
 			// Write Dependencies
 			f0.write("Dependencies : ");
-			writeToFile(project.getDependencies());
+			for(int i=0;i<project.getDependencies().size();i++) {
+				Dependency dependency = (Dependency)project.getDependencies().get(i);
+				String tempString = " Dependency : " + dependency.getGroupId().toString() + "." + dependency.getArtifactId().toString();
+				f0.write(tempString);
+			}
 			
 			f0.write(newLine);
-			
+					
 			// Write Plugins
 			f0.write("Plugins : ");
-			writeToFile(project.getBuildPlugins());
-			
+			for(int i=0;i<project.getBuildPlugins().size();i++) {
+				org.apache.maven.model.Plugin plugin = (org.apache.maven.model.Plugin)project.getBuildPlugins().get(i);
+				String tempString = " Plugin : " + plugin.getArtifactId().toString();
+				f0.write(tempString);
+			}
+			 			
+			//Close File			
 			f0.close();
 			
 		}
 		catch (IOException e){
 			System.out.println("An error occurred.");
 		      e.printStackTrace();
-		}
-	}
-	
-	public void writeToFile(String text) {
-		
-		try {
-			f0.write(text);
-		}
-		catch (IOException e){
-			System.out.println("An error occurred.");
-		    e.printStackTrace();
-		}
-	}
-	
-	public void writeToFile(List<Object> text) {
-		
-		try {
-			for(int i=0;i<text.size();i++) {
-				f0.write(text.get(i).toString());
-				if(i != text.size()-1) {f0.write(", ");}
-			}
-		}
-		catch (IOException e){
-			System.out.println("An error occurred.");
-		    e.printStackTrace();
 		}
 	}
 }

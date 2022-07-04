@@ -1,5 +1,5 @@
 Project info : com.ned.test.0.0.1-SNAPSHOT
-Developers : 
+Developers :  Developer 1 Name : Martijn Verburg
 Release Date : 23.06.2022
-Dependencies : Dependency {groupId=junit, artifactId=junit, version=4.11, type=jar}
-Plugins : Plugin [com.ned:bootcamp-homework1], Plugin [org.apache.maven.plugins:maven-clean-plugin], Plugin [org.apache.maven.plugins:maven-resources-plugin], Plugin [org.apache.maven.plugins:maven-jar-plugin], Plugin [org.apache.maven.plugins:maven-compiler-plugin], Plugin [org.apache.maven.plugins:maven-surefire-plugin], Plugin [org.apache.maven.plugins:maven-install-plugin], Plugin [org.apache.maven.plugins:maven-deploy-plugin], Plugin [org.apache.maven.plugins:maven-site-plugin]
+Dependencies :  Dependency : junit.junit Dependency : org.apache.maven.plugins.maven-jar-plugin
+Plugins :  Plugin : bootcamp-homework1 Plugin : maven-clean-plugin Plugin : maven-resources-plugin Plugin : maven-jar-plugin Plugin : maven-compiler-plugin Plugin : maven-surefire-plugin Plugin : maven-install-plugin Plugin : maven-deploy-plugin Plugin : maven-site-plugin

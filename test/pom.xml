@@ -19,18 +19,41 @@
     <release.date>23.06.2022</release.date>
   </properties>
 
+	<developers>
+      <developer>
+        <id>karianna</id>
+        <name>Martijn Verburg</name>
+        <organization>Ikasan</organization>
+        <organizationUrl>http://www.ikasan.org</organizationUrl>
+        <roles>
+          <role>developer</role>
+        </roles>
+        <timezone>0</timezone>
+      </developer>
+    </developers>
+
   <dependencies>
+    
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
-    </dependency>
+    </dependency>    
+    
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.2.0</version>
+	</dependency>
+    
+    
   </dependencies>
 
   <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+      	
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -70,9 +93,13 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+      
       </plugins>
     </pluginManagement>
-	<plugins>
+	
+	
+	
+	<plugins>	
 		<plugin>
 			<groupId>com.ned</groupId>
 			<artifactId>bootcamp-homework1</artifactId>
@@ -90,7 +117,7 @@
 				</execution>
 			</executions>
 		</plugin>
-	
 	</plugins>
+	
   </build>
 </project>
